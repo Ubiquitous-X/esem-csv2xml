@@ -1,7 +1,9 @@
 import os, csv
 from flask import Flask, flash, Markup, request, url_for, redirect, render_template, send_from_directory
 from werkzeug.utils import secure_filename
+from dotenv import load_dotenv
 
+load_dotenv('.env')
 ALLOWED_EXTENSIONS = {'csv'}
 UPLOAD_FOLDER = os.getcwd()
 xmlFile = os.path.join(UPLOAD_FOLDER, 'ProductRowPrices.xml')
