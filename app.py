@@ -18,9 +18,11 @@ def allowed_file(filename):
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
+
         if 'file' not in request.files:
             flash('Ingen fil i anropet')
             return redirect(request.url)
+
         file = request.files['file']
 
         if file.filename == '':
@@ -41,7 +43,7 @@ def upload_file():
 
             previous_id = None
             rows = 0
-            for row in csvData:
+            for row in csvData:  
                 row_id = row[0]
                 # close previous group, unless it is the first group
                 if previous_id is not None:
