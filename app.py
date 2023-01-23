@@ -41,10 +41,10 @@ def upload_file():
             rows = 0
             for row in csvData:
                 row_id = row[0]
-                # close previous group - but only if it is not first group
-                if previous_id is not None: 
+                # close previous group, unless it is the first group
+                if previous_id is not None:
                     xmlData.write('</ProductRowPrice>\n')
-                # open new group  
+                # open new group
                 xmlData.write('<ProductRowPrice>\n<ExternalCodePriceList>{}</ExternalCodePriceList>\n'.format(row[1]))
                 xmlData.write('<ExternalCodeProductRow>{}</ExternalCodeProductRow>\n'.format(row[2]))
                 xmlData.write('<Date>{} {}</Date>\n'.format(row[3],'00:00:00'))
@@ -75,7 +75,6 @@ def success():
             return redirect(url_for('upload_file'))
     elif request.method == 'GET':
         return render_template('success.html')
-
 
 if __name__ == "__main__":
    app.run(host='0.0.0.0', port=5000)
