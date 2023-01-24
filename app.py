@@ -75,7 +75,7 @@ def upload_file():
 @app.route('/success', methods=['GET', 'POST'])
 def success():
     if request.method == 'POST':
-        if request.form.get('download') == 'Hämta filen':
+        if request.form.get('download') == 'Hämta XML-filen':
             return send_from_directory(UPLOAD_FOLDER,'ProductRowPrices.xml',as_attachment=True)
         else:
             return redirect(url_for('upload_file'))
