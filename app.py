@@ -64,7 +64,7 @@ def upload_file():
                 xmlData.write('</ProductRowPrice>\n')
                 xmlData.write('</ProductRowPriceImportSet>\n')
                 xmlData.close()
-                flash('Överföring av {} prisrader lyckades.'.format(rows))
+                flash('{} rader har konverterats.'.format(rows))
                 return redirect(url_for('success', pricerows = rows))
 
         else:
@@ -81,6 +81,10 @@ def success():
             return redirect(url_for('upload_file'))
     elif request.method == 'GET':
         return render_template('success.html')
+
+@app.route('/mall', methods=['GET'])
+def example():
+    return send_from_directory(UPLOAD_FOLDER,'ProductRowPricesExempelfil.csv',as_attachment=True)
 
 if __name__ == "__main__":
    app.run(host='0.0.0.0', port=5000)
