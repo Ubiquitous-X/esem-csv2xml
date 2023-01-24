@@ -1,0 +1,4 @@
+ProductRowPrice;ExternalCodePriceList;ExternalCodeProductRow;Date;Price;FixedPriceVersionName
+ProductRowPrice;RefPricelist;RefProductRow;2023-01-01;400;ImportFixedPrices_2
+ProductRowPrice;RefPricelist;RefProductRow;2023-01-01;500;ImportFixedPrices_2
+ProductRowPrice;RefPricelist;RefProductRow;2023-01-01;600;ImportFixedPrices_2
