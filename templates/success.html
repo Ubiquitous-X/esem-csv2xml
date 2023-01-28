@@ -1,23 +1,20 @@
       {% extends "base.html" %}
       {% block content %}
-      <div class="row justify-content-center">
-        <div class="col-5 mt-5">
-          <div class="flashes mt-3">
-            <h3>
-            {% with messages = get_flashed_messages() %}
-              {% if messages %}
-                {% for message in messages %}
-                  {{ message }}
-                {% endfor %}
-              {% endif %}
-            {% endwith %}
-            </h3>
-          </div>
-          <form method="post" action="/success">
-            <input type=submit value="Hämta XML-filen" name="download" class="btn btn-outline-success">
-            <input type=submit value="Tillbaka" name="back" class="btn btn-outline-secondary">
-          </form>            
-          </div>
-        </div>
+      <div class="flashes mt-3">
+        <h3>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        </h3>
       </div>
+      <div class="mt-4">
+        <form method="post" action="/success">
+          <input type=submit value="Hämta XML-filen" name="download" class="btn btn-outline-success">
+          <input type=submit value="Tillbaka" name="back" class="btn btn-outline-secondary">
+        </form>
+      </div>        
       {% endblock %}
