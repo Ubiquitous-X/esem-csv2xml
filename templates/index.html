@@ -1,34 +1,29 @@
       {% extends "base.html" %}
-      {% block content %}
-      <div class="row justify-content-center">
-        <div class="col-5 mt-5">
-          <h3>CSV till XML för 'Business for Utilities'</h3>
-          <form method=post enctype=multipart/form-data>
-          <div class="input-group">      
-            <input type=file name=file class="form-control" id="fileform">
-            <input type=submit value=Skicka class="btn btn-outline-secondary">
-            </form>
-          </div>
-          <div class="flashes mt-3 text-danger">
-            {% with messages = get_flashed_messages() %}
-              {% if messages %}
-                {% for message in messages %}
-                  {{ message }}
-                {% endfor %}
-              {% endif %}
-            {% endwith %}
-          </div>
-        </div>
+      {% block content %}      
+      <div class="flashes mt-2 mb-2 text-danger">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
       </div>
-      <div class="row justify-content-center">
-        <div class="col-5 mt-2">
-          <small>Filen måste vara semikolonavgränsad. Datum i formatet ÅÅÅÅ-MM-DD</small><br>
-          <small>Ladda ner CGIs exempelfil <a class="text-primary text-decoration-none" href="{{ url_for('example') }}">här</a>        
-        </div>
+      <h3>CSV till XML för 'Business for Utilities'</h3>
+      <form method=post enctype=multipart/form-data>
+      <div class="input-group">      
+        <input type=file name=file class="form-control" id="fileform">
+        <input type=submit value=Skicka class="btn btn-outline-secondary">
+        </form>
       </div>
-      <footer class="bg-light fixed-bottom">
-        <div class="text-center p-2 font-small " style="background-color: rgba(255, 255, 255, 0.2);">
-          <a class="text-dark text-decoration-none" href="https://github.com/Ubiquitous-X/esem-csv2xml">Github</a>
-        </div>
-      </footer>
+      <div class="mt-5" style="font-size: 12px">
+        <p>Filen måste vara semikolonavgränsad</p>
+        <p>Datum skall vara i formatet ÅÅÅÅ-MM-DD</p>
+        <p>Priser skall ha en punkt som öresavgränsare tex. <i>145.9</i></p>
+        <p>I första kolumnen skall det stå ordet <i>ProductRowPrice</i></p>
+        <p>I andra kolumnen skall det stå <u>prislistans</u> externa referens</p>
+        <p>I tredje kolumen skall det stå <u>produktens</u> externa referens</p>
+        <p>I fjärde kolumnen skall det stå ordet <i>ImportFixedPrices_2</i></p>
+        <p class="mt-5">Ladda ner CGIs exempelfil <a class="text-primary text-decoration-none" href="{{ url_for('example') }}">här</a></p>
+      </div>      
       {% endblock %}
