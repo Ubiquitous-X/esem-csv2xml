@@ -39,7 +39,7 @@ def upload_file():
                 tags = [item.replace(' ', '_') for item in csvData[0]] # get the headers. Not currently in use, as they are hardcoded at the moment
                 csvData = (csvData[1:]) # strip headers from dataset
                 xmlData = open(xmlFile, 'w')
-                xmlData.write('<?xml version="1.0" encoding="UTF-8"?>\n')
+                xmlData.write('<?xml version="1.0" encoding="ISO-8859-1"?>\n')
                 xmlData.write('<ProductRowPriceImportSet xmlns="http://www.logica.com/BusinessForUtilities/2012/ProductRowPriceImportSet.xsd">\n')
 
                 previous_id = None
