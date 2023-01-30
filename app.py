@@ -32,20 +32,20 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(UPLOAD_FOLDER, 'incomming.csv'))
-            with open(UPLOAD_FOLDER + '/' + 'incomming.csv','rt') as csvfile:
+            with open(UPLOAD_FOLDER + '/' + 'incomming.csv','rt', encoding='ISO-8859-1') as csvfile:
                 csvData = csv.reader(csvfile, delimiter=';', quotechar=',')
                 csvData = list(csvData)
 
                 tags = [item.replace(' ', '_') for item in csvData[0]] # get the headers. Not currently in use, as they are hardcoded at the moment
                 csvData = (csvData[1:]) # strip headers from dataset
-                xmlData = open(xmlFile, 'w')
+                xmlData = open(xmlFile, 'w', encoding='ISO-8859-1')
                 xmlData.write('<?xml version="1.0" encoding="ISO-8859-1"?>\n')
                 xmlData.write('<ProductRowPriceImportSet xmlns="http://www.logica.com/BusinessForUtilities/2012/ProductRowPriceImportSet.xsd">\n')
 
                 previous_id = None
                 rows = 0
-                for row in csvData:  
-                    row_id = row[0]                    
+                for row in csvData:
+                    row_id = row[0]
                     # close previous group, unless it is the first group
                     if previous_id is not None:
                         xmlData.write('    </ProductRowPrice>\n')
