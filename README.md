@@ -1,3 +1,4 @@
- ### CSV till XML för 'Business for Utilities'
+### CSV till XML för 'Business for Utilities'
 
- App för att konvertera en CSV till korrekt XML för inläsning av prisradspriser i BFUS.
+För att konvertera en CSV till korrekt XML för inläsning av prisradspriser i BFU.
+Skriven i Python med Flask som ramverk.
